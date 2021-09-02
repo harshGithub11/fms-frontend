@@ -75,7 +75,14 @@ const Login = (props) => {
 
         dispatch(loginAction(user))
         if(login.loggedIn) {
-            props.history.push("/user/welcome")
+            console.log(user);
+            if(user.role === "user") {
+                console.log(user.role === "user")
+                props.history.push("/user/welcome")
+            }
+            else if(user.role === "admin") {
+                props.history.push("/admin/welcome")
+            }
         }
     }
 
@@ -96,7 +103,7 @@ const Login = (props) => {
             abortEarly: false
         })
 
-        console.log(result);
+        //console.log(result);
         
         //Populating the errors object if errors exists.
         if(result.error != null){
@@ -113,7 +120,7 @@ const Login = (props) => {
         <Container>
             {
                 login.loggedIn ? (
-                    <Redirect to="/user/welcome" />
+                    <Redirect to= {`/${user.role}/welcome`} />
                 ) : (
                     <Box>
                         <Box my={1} className="text-center">

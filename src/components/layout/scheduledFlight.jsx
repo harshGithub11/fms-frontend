@@ -6,6 +6,7 @@ import Typography from '@material-ui/core/Typography';
 import { Box, Grid, Paper } from '@material-ui/core';
 
 import customTheme from '../../util/theme';
+import { useSelector } from 'react-redux';
 
 const useStyles = makeStyles((theme) => ({
 
@@ -19,7 +20,13 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const ScheduledFlight = (props) => {
+  
   const classes = useStyles();
+
+  //Fetching the state from redux store
+  const state = useSelector(state => state);
+  //Fetch the login from state object
+  const login = state.login;
 
   return (
     <Grid item md={6} xs={12}>
@@ -37,9 +44,13 @@ const ScheduledFlight = (props) => {
           <Typography variant="h6">Ticket Cost: {props.scheduledFlightDetails.ticketCost}</Typography>
 
           <Box className="text-end" mt={1}>
-            <Button className={classes.button} variant="contained" color="primary" href={`/user/book/${props.scheduledFlightDetails.scheduleFlightId}/${props.bookingDate}`}>
-              Book Now
-            </Button>
+            {
+              login.role === "user" ? (
+                <Button className={classes.button} variant="contained" color="primary" href={`/user/book/${props.scheduledFlightDetails.scheduleFlightId}/${props.bookingDate}`}>
+                  Book Now
+                </Button>
+              ) : null
+            }
           </Box>
 
         </Box>
