@@ -20,7 +20,7 @@ class DropDown extends Component {
     
         return (
             <div>
-                <FormControl className={classes.formControl}>
+                <FormControl className={classes.formControl} error={this.props.error}>
                     <InputLabel>{this.props.label}</InputLabel>
                     <Select
                         name={this.props.name}

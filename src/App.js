@@ -12,6 +12,8 @@ import UserHome from './components/pages/userHome';
 import BookFlight from './components/pages/bookFlight';
 import PassengerDetails from './components/pages/passengerDetails';
 import BookingDetails from './components/pages/bookingDetails';
+import CancelBooking from './components/pages/cancelBooking';
+import ViewAllScheduledFlights from './components/pages/viewAllScheduledFlights';
 
 function App() {
   return (
@@ -24,9 +26,11 @@ function App() {
         <Route exact path="/logout" component={Logout} />
         <Route exact path="/register" component={Register} />
         <Route exact path="/user/welcome" component={UserHome} />
-        <Route exact path="/book" component={BookFlight} /> 
-        <Route exact path="/book/:scheduledFlightId/:bookingDate" component={PassengerDetails} />
-        <Route exact path="/book/booking-details" component={BookingDetails} />
+        <Route exact path="/user/book" component={BookFlight} /> 
+        <Route exact path="/user/book/:scheduledFlightId/:bookingDate" component={PassengerDetails} />
+        <Route exact path="/user/book/booking-details" component={BookingDetails} />
+        <Route exact path="/user/cancel-booking" component={CancelBooking} />
+        <Route exact path="/user/view-scheduled-flights" component={ViewAllScheduledFlights} />
       </Switch>
       </Router>
 

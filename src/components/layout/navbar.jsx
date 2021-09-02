@@ -3,10 +3,13 @@ import React, { Component } from 'react';
 // Material UI Flight icon import
 import FlightIcon from '@material-ui/icons/Flight';
 
+import {connect} from 'react-redux';
+
 class Navbar extends Component {
     constructor(props) {
         super(props);
-        this.state = {}
+        this.state = {
+        }
     }
     render() {
         return (
@@ -16,11 +19,23 @@ class Navbar extends Component {
                         <FlightIcon />
                         Flight Management System
                     </a>
-                    <a class="btn btn-outline-light" href="/login">Login</a>
+                    {
+                        this.props.login && this.props.login.loggedIn ? (
+                            <a class="btn btn-outline-light" href="/logout">Logout</a>
+                        ) : (
+                            <a class="btn btn-outline-light" href="/login">Login</a>
+                        )
+                    }
                 </div>
             </nav>
         );
     }
 }
 
-export default Navbar;
+const mapStateToProps = (state) => {
+    return {
+        login: state.login        
+    }
+}
+
+export default connect(mapStateToProps)(Navbar);

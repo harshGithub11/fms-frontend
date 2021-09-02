@@ -23,33 +23,29 @@ const UserHome = (props) => {
         <div>
             {login.loggedIn ? (
                 <Box mt={3}>
-                    <Typography variant="h3" className="text-center">
-                        Welcome User
-                </Typography>
+                    <Box my={2}>
+                        <Typography variant="h3" className="text-center">
+                            Welcome User
+                        </Typography>
+                    </Box>
                     <Grid container>
                         <Grid item xs={12} sm={6} style={{ marginLeft: 'auto', marginRight: 'auto' }}>
                             <Paper elevation={3} className={classes.paper}>
                                 <Box>
                                     <Box my={2}>
-                                        <Link to="/book">
-                                            <Button className={classes.button} variant="contained" color="primary" fullWidth>
-                                                Book a Flight
+                                        <Button className={classes.button} component={Link} to="/user/book" variant="contained" color="primary" fullWidth>
+                                            Book a Flight
                                         </Button>
-                                        </Link>
                                     </Box>
                                     <Box my={2}>
-                                        <Link to="/">
-                                            <Button className={classes.button} variant="contained" color="primary" fullWidth>
-                                                View Flights
-                                    </Button>
-                                        </Link>
+                                        <Button className={classes.button} component={Link} to="/user/view-scheduled-flights" variant="contained" color="primary" fullWidth>
+                                            View Flights
+                                        </Button>      
                                     </Box>
                                     <Box my={2}>
-                                        <Link to="/">
-                                            <Button className={classes.button} variant="contained" color="primary" fullWidth>
-                                                Cancel Booking
-                                    </Button>
-                                        </Link>
+                                        <Button className={classes.button} component={Link} to="/user/cancel-booking" variant="contained" color="primary" fullWidth>
+                                            Cancel Booking
+                                        </Button>
                                     </Box>
                                 </Box>
                             </Paper>
@@ -65,9 +61,7 @@ const UserHome = (props) => {
                     </Box>
             )}
         </div>
-
     )
-
 }
 
 export default UserHome;

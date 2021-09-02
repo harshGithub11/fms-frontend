@@ -2,7 +2,7 @@ const initialState = {
     email: "",
     role: "",
     loggedIn: false,
-    errMsg: ""
+    message: ""
 };
 
 const UserReducer = (state = initialState, action) => {
@@ -10,13 +10,12 @@ const UserReducer = (state = initialState, action) => {
     switch(action.type) {
         case "LOGIN": 
             return {
-                ...state, 
                 ...action.payload
             }
         case "LOGOUT":
             return {
-                ...state,
-                ...action.payload
+                ...action.payload,
+                message: "Logged out successfully!"
             }
         case "ERROR":
             return {
@@ -26,7 +25,6 @@ const UserReducer = (state = initialState, action) => {
         default: 
             return state
     }
-
 }
 
 export default UserReducer;

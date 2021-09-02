@@ -37,7 +37,7 @@ const ScheduledFlight = (props) => {
           <Typography variant="h6">Ticket Cost: {props.scheduledFlightDetails.ticketCost}</Typography>
 
           <Box className="text-end" mt={1}>
-            <Button className={classes.button} variant="contained" color="primary" href={`/book/${props.scheduledFlightDetails.scheduleFlightId}/${props.bookingDate}`}>
+            <Button className={classes.button} variant="contained" color="primary" href={`/user/book/${props.scheduledFlightDetails.scheduleFlightId}/${props.bookingDate}`}>
               Book Now
             </Button>
           </Box>

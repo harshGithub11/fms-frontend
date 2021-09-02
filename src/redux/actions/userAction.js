@@ -29,4 +29,9 @@ export const logoutAction = (email) => async (dispatch) => {
         type: "LOGOUT",
         payload: response,
     })
+
+    dispatch({
+        type: "CLEAR_BOOKING"
+    })
+
 }
